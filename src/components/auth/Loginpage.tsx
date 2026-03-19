@@ -96,12 +96,14 @@ export const LoginPage = () => {
                       Remember me
                     </label>
                   </div>
+                  <Link href={"/forgot-password"} >
                   <button
                     type="button"
                     className="text-sm font-medium text-[var(--primary)] hover:underline"
                   >
                     Forgot password?
                   </button>
+                  </Link>
                 </div>
                 <Button type="submit" className="w-full">
                   <LogIn className="mr-2" size={18} />
