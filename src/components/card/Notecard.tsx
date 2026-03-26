@@ -8,8 +8,7 @@ interface NoteCardProps {
   note: Note;
   /** Subject name resolved from subjectId */
   subjectName?: string;
-  onMenuClick?: (id: string) => void;
-  onClick?: (id: string) => void;
+  
 }
 
 /** Formats "2024-03-10" → "Mar 10, 2024" */
@@ -23,13 +22,12 @@ const formatDate = (dateStr: string) =>
 export const NoteCard: React.FC<NoteCardProps> = ({
   note,
   subjectName,
-  onMenuClick,
-  onClick,
+  
 }) => {
   return (
     <Card
       className="p-4 space-y-3 hover:shadow-md transition-shadow cursor-pointer"
-      onClick={() => onClick?.(note.id)}
+     
     >
       {/* Title + menu */}
       <div className="flex justify-between items-start">
@@ -40,7 +38,7 @@ export const NoteCard: React.FC<NoteCardProps> = ({
           className="h-6 w-6 flex-shrink-0"
           onClick={(e) => {
             e.stopPropagation();
-            onMenuClick?.(note.id);
+           
           }}
         >
           <MoreVertical size={14} />

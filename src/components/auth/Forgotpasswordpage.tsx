@@ -13,15 +13,7 @@ export const ForgotPasswordPage = () => {
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
-//   const handleSubmit = async (e: React.FormEvent) => {
-//     e.preventDefault();
-//     setIsLoading(true);
-    // Simulate API call
-    // await new Promise((res) => setTimeout(res, 1200));
-    // setIsLoading(false);
-    // Pass email to verify page via query param
-//     router.push(`/verify-otp?email=${encodeURIComponent(email)}`);
-//   };
+
 
   return (
     <div className="min-h-screen w-full flex items-center justify-center bg-gradient-to-br from-[var(--background)] via-[var(--background)] to-[var(--muted)]/30 p-4 md:p-8">
@@ -31,7 +23,7 @@ export const ForgotPasswordPage = () => {
           <div className="w-12 h-12 bg-[var(--primary)] rounded-xl flex items-center justify-center mb-2">
             <BookOpen className="text-[var(--primary-foreground)]" size={28} />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight">Academia</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Smart Study Planner</h1>
         </div>
 
         <Card className="p-6 md:p-8 shadow-2xl border-[var(--border)]/50">

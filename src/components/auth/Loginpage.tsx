@@ -25,7 +25,7 @@ export const LoginPage = () => {
             <div className="w-10 h-10 bg-[var(--primary)] rounded-xl flex items-center justify-center">
               <BookOpen className="text-[var(--primary-foreground)]" size={24} />
             </div>
-            <span className="text-2xl font-bold tracking-tight">Academia</span>
+            <span className="text-2xl font-bold tracking-tight">Smart Study Planner</span>
           </div>
           <h1 className="text-4xl lg:text-5xl font-bold leading-tight">
             Master your academic journey with precision.
@@ -60,7 +60,7 @@ export const LoginPage = () => {
             <div className="w-12 h-12 bg-[var(--primary)] rounded-xl flex items-center justify-center mb-2">
               <BookOpen className="text-[var(--primary-foreground)]" size={28} />
             </div>
-            <h1 className="text-3xl font-bold tracking-tight">Academia</h1>
+            <h1 className="text-3xl font-bold tracking-tight">Smart Study Planner</h1>
           </div>
 
           <Card className="p-6 md:p-8 shadow-2xl border-[var(--border)]/50">

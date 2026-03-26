@@ -54,11 +54,9 @@ export const Sidebar = ({
     <>
       <div className="p-6 flex items-center justify-between">
         {(!isCollapsed || isMobileMenuOpen) && (
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-[var(--primary)] rounded-lg flex items-center justify-center">
-              <span className="text-[var(--primary-foreground)] font-bold">A</span>
-            </div>
-            <span className="font-bold text-xl tracking-tight">Academia</span>
+          <div className=" ">
+            
+            <span className="font-bold text-[18px] ">Smart Study Planner</span>
           </div>
         )}
         <Button

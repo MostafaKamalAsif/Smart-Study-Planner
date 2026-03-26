@@ -9,10 +9,7 @@ import Link from "next/link";
 interface SemesterCardProps {
   /** Full semester object from  types */
   semester: Semester;
-  /** Called when "View Subjects" button is clicked */
-  onViewSubjects?: (id: string) => void;
-  /** Called when the card itself is clicked */
-  onClick?: (id: string) => void;
+ 
 }
 
 /** Formats "2024-01-15" → "Jan 15, 2024" */
@@ -21,7 +18,7 @@ const formatDate = (dateStr: string) =>
     month: "short",
     day: "numeric",
     year: "numeric",
-  });
+  }); 
 
 /** A semester is "active" if today falls between its start and end dates */
 const isActiveSemester = (startDate: string, endDate: string) => {
@@ -31,15 +28,14 @@ const isActiveSemester = (startDate: string, endDate: string) => {
 
 export const SemesterCard: React.FC<SemesterCardProps> = ({
   semester,
-  onViewSubjects,
-  onClick,
+  
 }) => {
   const active = isActiveSemester(semester.startDate, semester.endDate);
 
   return (
     <Card
       className="p-6 space-y-4 hover:border-[var(--primary)]/50 transition-all group cursor-pointer"
-      onClick={() => onClick?.(semester.id)}
+      
     >
       {/* Header */}
       <div className="flex justify-between items-start gap-4">
@@ -79,7 +75,7 @@ export const SemesterCard: React.FC<SemesterCardProps> = ({
         className="w-full"
         onClick={(e) => {
           e.stopPropagation();
-          onViewSubjects?.(semester.id);
+          
         }}
       >
         View Subjects

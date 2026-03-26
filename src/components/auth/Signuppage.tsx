@@ -23,7 +23,7 @@ export const SignUpPage = () => {
           <div className="w-12 h-12 bg-[var(--primary)] rounded-xl flex items-center justify-center mb-2">
             <BookOpen className="text-[var(--primary-foreground)]" size={28} />
           </div>
-          <h1 className="text-3xl font-bold tracking-tight">Academia</h1>
+          <h1 className="text-3xl font-bold tracking-tight">Smart Study Planner</h1>
         </div>
 
         <Card className="p-6 md:p-8 shadow-2xl border-[var(--border)]/50">
@@ -33,7 +33,7 @@ export const SignUpPage = () => {
                 Create an account
               </h2>
               <p className="text-sm text-[var(--muted-foreground)]">
-                Join Academia and start organizing your studies
+                Join Smart Study Planner and start organizing your studies
               </p>
             </div>
             <div className="space-y-4">

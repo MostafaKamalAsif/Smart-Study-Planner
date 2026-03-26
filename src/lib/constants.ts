@@ -9,7 +9,7 @@ export const MOCK_SEMESTERS: Semester[] = [
     subjectCount: 5,
   },
   {
-    id: "2",
+    id: "2", 
     name: "Fall 2023",
     startDate: "2023-08-25",
     endDate: "2023-12-15",

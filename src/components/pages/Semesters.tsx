@@ -12,15 +12,6 @@ import { SemesterCard } from "../card/Semestercard";
 export const Semesters = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const handleViewSubjects = (id: string) => {
-  //   console.log("View subjects for semester:", id);
-  
-  // };
-
-  // const handleCardClick = (id: string) => {
-  //   console.log("Card clicked:", id);
-
-  // };
 
   return (
     <PageTransition>

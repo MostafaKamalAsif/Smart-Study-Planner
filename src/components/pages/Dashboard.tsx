@@ -3,15 +3,13 @@
 import React from "react";
 import { Clock, FileText } from "lucide-react";
 
-import { MOCK_ASSIGNMENTS, MOCK_NOTES, MOCK_SUBJECTS } from "@/lib/constants";
+import { MOCK_ASSIGNMENTS, MOCK_NOTES } from "@/lib/constants";
 import { PageTransition } from "../ui/Pagetransition";
 import { AssignmentCard } from "../card/Assignmentcard";
 import { NoteCard } from "../card/Notecard";
 import { PendingAssignmentItem } from "../card/Pendingassignmentitem";
 
-/** Resolves a subject name from subjectId — remove once you have an API */
-// const getSubjectName = (subjectId: string) =>
-//   MOCK_SUBJECTS.find((s) => s.id === subjectId)?.name;
+
 
 export const Dashboard = () => {
   const upcomingAssignments = MOCK_ASSIGNMENTS.filter(
@@ -24,25 +22,7 @@ export const Dashboard = () => {
     (a) => a.status === "Pending"
   );
 
-  // const handleAssignmentClick = (id: string) => {
-  //   console.log("Assignment clicked:", id);
-   
-  // };
 
-  // const handleNoteClick = (id: string) => {
-  //   console.log("Note clicked:", id);
-   
-  // };
-
-  // const handleNoteMenu = (id: string) => {
-  //   console.log("Note menu:", id);
-    
-  // };
-
-  const handlePendingClick = (id: string) => {
-    console.log("Pending assignment clicked:", id);
-    // e.g. router.push(`/assignments/${id}`)
-  };
 
   return (
     <PageTransition>
@@ -74,8 +54,7 @@ export const Dashboard = () => {
                   <AssignmentCard
                     key={assignment.id}
                     assignment={assignment}
-                    // subjectName={getSubjectName(assignment.subjectId)}
-                    // onClick={handleAssignmentClick}
+                  
                   />
                 ))}
               </div>
@@ -92,9 +71,7 @@ export const Dashboard = () => {
                   <NoteCard
                     key={note.id}
                     note={note}
-                    // subjectName={getSubjectName(note.subjectId)}
-                    // onMenuClick={handleNoteMenu}
-                    // onClick={handleNoteClick}
+                    
                   />
                 ))}
               </div>
@@ -110,7 +87,7 @@ export const Dashboard = () => {
                   <PendingAssignmentItem
                     key={assignment.id}
                     assignment={assignment}
-                    onClick={handlePendingClick}
+                    
                   />
                 ))}
               </div>

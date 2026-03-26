@@ -9,7 +9,7 @@ export interface Semester {
 }
 
 export interface Subject {
-  id: string;
+  id: string; 
   semesterId: string;
   name: string;
   instructor: string;

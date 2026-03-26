@@ -8,7 +8,7 @@ interface AssignmentCardProps {
   assignment: Assignment;
   /** Subject name resolved from subjectId */
   subjectName?: string;
-  onClick?: (id: string) => void;
+
 }
 
 /** Formats "2024-03-20" → "Mar 20, 2024" */
@@ -22,14 +22,14 @@ const formatDate = (dateStr: string) =>
 export const AssignmentCard: React.FC<AssignmentCardProps> = ({
   assignment,
   subjectName,
-  onClick,
+
 }) => {
   const isOverdue = assignment.status === "Overdue";
 
   return (
     <Card
       className="p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-4 hover:shadow-md transition-shadow cursor-pointer"
-      onClick={() => onClick?.(assignment.id)}
+   
     >
       {/* Left: icon + title + subject */}
       <div className="flex items-center space-x-4">

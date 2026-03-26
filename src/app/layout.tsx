@@ -2,7 +2,7 @@ import type { Metadata } from "next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Academia - Smart Study Planner",
+  title: " Smart Study Planner",
   description: "Organize semesters, track assignments, and manage notes in one beautiful workspace.",
 };
 
