@@ -55,10 +55,11 @@ export const SignUpPage = () => {
                   <Input type="password" placeholder="••••••••" />
                 </div>
               </div>
+              <Link href={'/login'}>
               <Button type="submit" className="w-full">
                 <UserPlus className="mr-2" size={18} />
                 Create Account
-              </Button>
+              </Button></Link>
             </div>
             <div className="text-center text-sm">
               <span className="text-[var(--muted-foreground)]">

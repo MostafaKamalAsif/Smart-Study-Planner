@@ -64,6 +64,7 @@ export const ForgotPasswordPage = () => {
             </div>
 
             {/* Submit */}
+            <Link href={'/verify-otp'}>
             <Button type="submit" className="w-full" disabled={isLoading}>
               {isLoading ? (
                 <span className="flex items-center gap-2">
@@ -90,11 +91,13 @@ export const ForgotPasswordPage = () => {
                 </span>
               ) : (
                 <span className="flex items-center gap-2">
+                  
                   <Send size={16} />
-                  Send Reset Code
+                  Send Reset Code 
                 </span>
+               
               )}
-            </Button>
+            </Button></Link>
 
             {/* Back to login */}
             <div className="text-center">
