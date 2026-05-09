@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState, useRef, useEffect } from "react";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { ShieldCheck, BookOpen, ArrowLeft, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ArrowLeft, BookOpen, RefreshCw, ShieldCheck } from "lucide-react";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useEffect, useRef, useState, type ClipboardEvent, type FormEvent, type KeyboardEvent } from "react";
 
 const OTP_LENGTH = 6;
 
@@ -40,13 +40,13 @@ export const VerifyOtpPage = () => {
     }
   };
 
-  const handleKeyDown = (index: number, e: React.KeyboardEvent) => {
+  const handleKeyDown = (index: number, e: KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Backspace" && !otp[index] && index > 0) {
       inputRefs.current[index - 1]?.focus();
     }
   };
 
-  const handlePaste = (e: React.ClipboardEvent) => {
+  const handlePaste = (e: ClipboardEvent<HTMLInputElement>) => {
     e.preventDefault();
     const pasted = e.clipboardData.getData("text").replace(/\D/g, "").slice(0, OTP_LENGTH);
     const next = [...otp];
@@ -57,7 +57,7 @@ export const VerifyOtpPage = () => {
     inputRefs.current[focusIdx]?.focus();
   };
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     const code = otp.join("");
     if (code.length < OTP_LENGTH) {
@@ -174,7 +174,6 @@ export const VerifyOtpPage = () => {
                   </span>
                 </p>
               ) : (
-                <Link href={'./set-new-password'}>
                 <button
                   type="button"
                   onClick={handleResend}
@@ -183,7 +182,7 @@ export const VerifyOtpPage = () => {
                 >
                   <RefreshCw size={13} className={isResending ? "animate-spin" : ""} />
                   {isResending ? "Resending..." : "Resend code"}
-                </button></Link>
+                </button>
               )}
             </div>
 

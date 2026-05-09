@@ -1,10 +1,13 @@
-import { SetNewPasswordPage } from '@/components/auth/Setnewpasswordpage'
-import React from 'react'
+"use client";
+import { SetNewPasswordPage } from '@/components/auth/Setnewpasswordpage';
+import { Suspense } from "react";
 
-const page = () => {
+export const dynamic = "force-dynamic";
+
+export default function Page() {
   return (
-    <SetNewPasswordPage/>
-  )
+    <Suspense fallback={null}>
+      <SetNewPasswordPage />
+    </Suspense>
+  );
 }
-
-export default page

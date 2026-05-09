@@ -1,10 +1,13 @@
-import React from 'react'
-import { VerifyOtpPage } from '../../components/auth/Verifyotppage'
+"use client";
+import { VerifyOtpPage } from '@/components/auth/Verifyotppage';
+import { Suspense } from "react";
 
-const page = () => {
+export const dynamic = "force-dynamic";
+
+export default function Page() {
   return (
-    <VerifyOtpPage/>
-  )
+    <Suspense fallback={null}>
+      <VerifyOtpPage />
+    </Suspense>
+  );
 }
-
-export default page

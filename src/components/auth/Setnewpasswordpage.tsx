@@ -1,11 +1,11 @@
 "use client";
 
-import React, { useState } from "react";
-import Link from "next/link";
-import { useRouter, useSearchParams } from "next/navigation";
-import { KeyRound, BookOpen, ArrowLeft, Eye, EyeOff, CheckCircle2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
+import { ArrowLeft, BookOpen, CheckCircle2, Eye, EyeOff, KeyRound } from "lucide-react";
+import Link from "next/link";
+import { useRouter, useSearchParams } from "next/navigation";
+import { useState, type FormEvent } from "react";
 
 interface PasswordRule {
   label: string;
@@ -35,7 +35,7 @@ export const SetNewPasswordPage = () => {
   const rulesPass = PASSWORD_RULES.every((r) => r.test(password));
   const passwordsMatch = password === confirm && confirm.length > 0;
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setError("");
 
