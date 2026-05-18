@@ -18,6 +18,17 @@ import { MOCK_ASSIGNMENTS, MOCK_SUBJECTS } from "@/lib/constants";
 import { Status } from "@/types";
 
 
+const getStatusBadge = (status: Status) => {
+  switch (status) {
+    case "Completed":
+      return <Badge variant="success">{status}</Badge>;
+    case "Overdue":
+      return <Badge variant="destructive">{status}</Badge>;
+    default:
+      return <Badge variant="secondary">{status}</Badge>;
+  }
+};
+
 const page = () => {
   return (
     <div>page</div>
