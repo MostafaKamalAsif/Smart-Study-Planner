@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import {
@@ -44,10 +44,30 @@ export const Sidebar = ({
   setIsMobileMenuOpen,
 }: SidebarProps) => {
   const [isCollapsed, setIsCollapsed] = useState(false);
+  const [user, setUser] = useState<{ fullName: string; email: string } | null>(
+    null
+  );
   const router = useRouter();
 
-  const handleLogout = () => {
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/auth/me", { credentials: "include" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data?.user) setUser(data.user);
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+  const handleLogout = async () => {
+    try {
+      await fetch("/api/auth/logout", { method: "POST" });
+    } catch {}
     router.push("/login");
+    router.refresh();
   };
 
   const sidebarContent = (
@@ -132,14 +152,17 @@ export const Sidebar = ({
           {(!isCollapsed || isMobileMenuOpen) && (
             <>
               <div className="flex-1 min-w-0">
-                <p className="text-sm font-medium truncate">Mostafa Kamal</p>
+                <p className="text-sm font-medium truncate">
+                  {user?.fullName ?? "Loading..."}
+                </p>
                 <p className="text-xs text-[var(--muted-foreground)] truncate">
-                  Student
+                  {user?.email ?? "Student"}
                 </p>
               </div>
               <button
                 onClick={handleLogout}
                 className="text-[var(--muted-foreground)] hover:text-[var(--destructive)] cursor-pointer"
+                title="Sign out"
               >
                 <LogOut size={16} />
               </button>
