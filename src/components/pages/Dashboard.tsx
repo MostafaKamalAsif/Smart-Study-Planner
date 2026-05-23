@@ -4,7 +4,7 @@ import React from "react";
 import { Clock, FileText } from "lucide-react";
 
 import { MOCK_ASSIGNMENTS, MOCK_NOTES } from "@/lib/constants";
-import { PageTransition } from "../ui/Pagetransition";
+import { PageTransition } from "../ui/PageTransition";
 import { AssignmentCard } from "../card/Assignmentcard";
 import { NoteCard } from "../card/Notecard";
 import { PendingAssignmentItem } from "../card/Pendingassignmentitem";
@@ -54,7 +54,7 @@ export const Dashboard = () => {
                   <AssignmentCard
                     key={assignment.id}
                     assignment={assignment}
-                  
+
                   />
                 ))}
               </div>
@@ -71,7 +71,7 @@ export const Dashboard = () => {
                   <NoteCard
                     key={note.id}
                     note={note}
-                    
+
                   />
                 ))}
               </div>
@@ -87,7 +87,7 @@ export const Dashboard = () => {
                   <PendingAssignmentItem
                     key={assignment.id}
                     assignment={assignment}
-                    
+
                   />
                 ))}
               </div>

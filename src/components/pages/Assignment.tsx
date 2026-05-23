@@ -13,7 +13,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
 import { Modal } from "@/components/ui/Modal";
-import { PageTransition } from "@/components/ui/Pagetransition";
+import { PageTransition } from "@/components/ui/PageTransition";
 import { MOCK_ASSIGNMENTS, MOCK_SUBJECTS } from "@/lib/constants";
 import { Status } from "@/types";
 

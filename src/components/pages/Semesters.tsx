@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Modal } from "@/components/ui/Modal";
 import { MOCK_SEMESTERS } from "@/lib/constants";
-import { PageTransition } from "../ui/Pagetransition";
+import { PageTransition } from "../ui/PageTransition";
 import { SemesterCard } from "../card/Semestercard";
 
 export const Semesters = () => {
@@ -30,8 +30,8 @@ export const Semesters = () => {
             <SemesterCard
               key={semester.id}
               semester={semester}
-              // onViewSubjects={handleViewSubjects}
-              // onClick={handleCardClick}
+            // onViewSubjects={handleViewSubjects}
+            // onClick={handleCardClick}
             />
           ))}
         </div>
