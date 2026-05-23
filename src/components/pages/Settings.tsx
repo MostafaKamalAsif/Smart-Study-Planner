@@ -2,10 +2,10 @@
 
 import React from "react";
 import { Edit2, User, Lock, Palette, Moon, Sun } from "lucide-react";
-import { Card } from "@/components/ui/Card";
-import { Button } from "@/components/ui/Button";
-import { Input } from "@/components/ui/Input";
-import { PageTransition } from "@/components/ui/PageTransition";
+import { Card } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { PageTransition } from "@/components/ui/pageTransition";
 
 export const Settings = () => {
   // Settings page reads dark mode state from the document class
