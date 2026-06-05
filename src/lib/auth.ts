@@ -73,5 +73,9 @@ export async function getCurrentUserPayload(): Promise<JwtPayload | null> {
   const store = await cookies();
   const token = store.get(AUTH_COOKIE)?.value;
   if (!token) return null;
-  return verifyToken(token);
+  let verify = verifyToken(token);
+  if (!verify){
+     await clearAuthCookie();
+  }
+  return verify;
 }
