@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { use, useEffect, useState } from "react";
 import { Edit2, User, Lock, Palette, Moon, Sun } from "lucide-react";
 import { Card } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -8,6 +8,24 @@ import { Input } from "@/components/ui/input";
 import { PageTransition } from "@/components/ui/PageTransition";
 
 export const Settings = () => {
+  const [user, setUser] = useState<{ fullName: string; email: string } | null>(
+    null
+  );
+
+  useEffect(() => {
+    let cancelled = false;
+    fetch("/api/auth/me", { credentials: "include" })
+      .then((res) => (res.ok ? res.json() : null))
+      .then((data) => {
+        if (!cancelled && data?.user) setUser(data.user);
+      })
+      .catch(() => { });
+    return () => {
+      cancelled = true;
+    };
+  }, []);
+
+
   // Settings page reads dark mode state from the document class
   const isDark =
     typeof document !== "undefined" &&
@@ -43,9 +61,9 @@ export const Settings = () => {
                 </button>
               </div>
               <div className="space-y-1 text-center sm:text-left">
-                <h4 className="text-xl font-bold">Mostafa Kamal</h4>
+                <h4 className="text-xl font-bold">{user?.fullName}</h4>
                 <p className="text-sm text-[var(--muted-foreground)]">
-                  mostafa@university.edu
+                  {user?.email}
                 </p>
                 <Button variant="outline" size="sm" className="mt-2">
                   Change Avatar
@@ -55,11 +73,11 @@ export const Settings = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               <div className="space-y-2">
                 <label className="text-sm font-medium">Full Name</label>
-                <Input defaultValue="Mostafa Kamal" />
+                <Input defaultValue={user?.fullName} />
               </div>
               <div className="space-y-2">
                 <label className="text-sm font-medium">Email Address</label>
-                <Input defaultValue="mostafa@university.edu" />
+                <Input defaultValue={user?.email} />
               </div>
             </div>
             <Button className="w-full sm:w-auto">Save Changes</Button>
